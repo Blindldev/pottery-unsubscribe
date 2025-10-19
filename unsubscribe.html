@@ -397,6 +397,7 @@
         </div>
     </div>
 
+    <script src="api-handler.js"></script>
     <script>
         let selectedAction = null;
         let currentEmail = '';
@@ -486,70 +487,7 @@
             document.getElementById('cancel-btn').classList.add('hidden');
         }
 
-        // Process unsubscribe
-        async function processUnsubscribe() {
-            try {
-                const response = await fetch('http://localhost:3001/api/unsubscribe', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        email: currentEmail,
-                        action: 'unsubscribe'
-                    })
-                });
-
-                const data = await response.json();
-
-                if (data.success) {
-                    showMessage('You have been successfully unsubscribed from all emails.', 'success');
-                    document.querySelector('.options').style.display = 'none';
-                    document.querySelector('.action-buttons').style.display = 'none';
-                } else {
-                    showMessage('Error: ' + (data.error || 'Failed to unsubscribe'), 'error');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                showMessage('Failed to connect to the server. Please try again later.', 'error');
-            }
-        }
-
-        // Process preferences
-        async function processPreferences() {
-            const preferences = {
-                newsletter: document.getElementById('newsletter').checked,
-                promotions: document.getElementById('promotions').checked,
-                events: document.getElementById('events').checked
-            };
-
-            try {
-                const response = await fetch('http://localhost:3001/api/unsubscribe', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        email: currentEmail,
-                        action: 'preferences',
-                        preferences: preferences
-                    })
-                });
-
-                const data = await response.json();
-
-                if (data.success) {
-                    showMessage('Your email preferences have been updated successfully!', 'success');
-                    document.querySelector('.options').style.display = 'none';
-                    document.querySelector('.action-buttons').style.display = 'none';
-                } else {
-                    showMessage('Error: ' + (data.error || 'Failed to update preferences'), 'error');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                showMessage('Failed to connect to the server. Please try again later.', 'error');
-            }
-        }
+        // These functions are now handled by api-handler.js
 
         // Show message
         function showMessage(message, type) {
