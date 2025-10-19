@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Export Unsubscribe Data - The Pottery Loop</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #f4f1eb 0%, #e8ddd4 50%, #d4c4b0 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .data-display {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .btn {
+            background: #8B4513;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+        .btn:hover {
+            background: #A0522D;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏺 Unsubscribe Data Export</h1>
+            <p>View and export unsubscribe data from the GitHub Pages site</p>
+        </div>
+        
+        <div>
+            <button class="btn" onclick="loadData()">Load Data</button>
+            <button class="btn" onclick="exportData()">Export JSON</button>
+            <button class="btn" onclick="clearData()">Clear Data</button>
+        </div>
+        
+        <div id="data-display" class="data-display">
+            Click "Load Data" to view unsubscribe records...
+        </div>
+    </div>
+
+    <script>
+        function loadData() {
+            const data = localStorage.getItem('pottery_unsubscribes');
+            const display = document.getElementById('data-display');
+            
+            if (data) {
+                try {
+                    const parsed = JSON.parse(data);
+                    display.textContent = JSON.stringify(parsed, null, 2);
+                } catch (error) {
+                    display.textContent = 'Error parsing data: ' + error.message;
+                }
+            } else {
+                display.textContent = 'No unsubscribe data found in local storage.';
+            }
+        }
+
+        function exportData() {
+            const data = localStorage.getItem('pottery_unsubscribes');
+            if (data) {
+                const blob = new Blob([data], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'pottery-unsubscribes-' + new Date().toISOString().split('T')[0] + '.json';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            } else {
+                alert('No data to export');
+            }
+        }
+
+        function clearData() {
+            if (confirm('Are you sure you want to clear all unsubscribe data?')) {
+                localStorage.removeItem('pottery_unsubscribes');
+                document.getElementById('data-display').textContent = 'Data cleared.';
+            }
+        }
+
+        // Load data on page load
+        loadData();
+    </script>
+</body>
+</html>
