@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Pottery Loop - Chicago Pottery Studio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .tagline {
+            font-size: 20px;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            opacity: 0.8;
+        }
+        
+        .content {
+            padding: 50px 40px;
+        }
+        
+        .welcome {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .welcome h1 {
+            color: #8B4513;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+        
+        .welcome p {
+            color: #666;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .link-card {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .link-card:hover {
+            border-color: #8B4513;
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.15);
+            transform: translateY(-2px);
+        }
+        
+        .link-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .link-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #8B4513;
+            margin-bottom: 15px;
+        }
+        
+        .link-description {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        
+        .link-button {
+            background: #8B4513;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .link-button:hover {
+            background: #A0522D;
+            transform: translateY(-1px);
+        }
+        
+        .footer {
+            background: #f8f9fa;
+            padding: 40px;
+            text-align: center;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .footer p {
+            color: #666;
+            font-size: 14px;
+            margin: 5px 0;
+        }
+        
+        .footer a {
+            color: #8B4513;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                margin: 10px;
+                border-radius: 0;
+            }
+            
+            .header, .content, .footer {
+                padding: 30px 20px;
+            }
+            
+            .logo {
+                font-size: 36px;
+            }
+            
+            .tagline {
+                font-size: 18px;
+            }
+            
+            .welcome h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">🏺 The Pottery Loop</div>
+            <p class="tagline">Chicago's Premier Pottery Studio</p>
+            <p class="subtitle">Create • Learn • Connect</p>
+        </div>
+        
+        <div class="content">
+            <div class="welcome">
+                <h1>Welcome to The Pottery Loop</h1>
+                <p>Discover the joy of pottery in our welcoming Chicago studio. Whether you're a beginner or experienced artist, we have something for everyone.</p>
+            </div>
+            
+            <div class="links-grid">
+                <div class="link-card" onclick="window.open('https://www.thepotteryloop.com/', '_blank')">
+                    <div class="link-icon">🎨</div>
+                    <div class="link-title">Main Studio</div>
+                    <div class="link-description">Explore our pottery classes, workshops, and studio space. Book your next creative session.</div>
+                    <a href="https://www.thepotteryloop.com/" class="link-button" target="_blank">Visit Studio</a>
+                </div>
+                
+                <div class="link-card" onclick="window.open('https://www.thepotteryloop.com/private-events', '_blank')">
+                    <div class="link-icon">🎉</div>
+                    <div class="link-title">Private Events</div>
+                    <div class="link-description">Host your special occasion with us. Birthday parties, team building, and private pottery sessions.</div>
+                    <a href="https://www.thepotteryloop.com/private-events" class="link-button" target="_blank">Book Event</a>
+                </div>
+                
+                <div class="link-card" onclick="window.location.href='subscribe.html'">
+                    <div class="link-icon">📧</div>
+                    <div class="link-title">Email Subscribe</div>
+                    <div class="link-description">Stay updated with our latest classes, events, and pottery tips. Join our community newsletter.</div>
+                    <a href="subscribe.html" class="link-button">Subscribe</a>
+                </div>
+                
+                <div class="link-card" onclick="window.location.href='unsubscribe.html'">
+                    <div class="link-icon">🚫</div>
+                    <div class="link-title">Email Unsubscribe</div>
+                    <div class="link-description">Manage your email preferences or unsubscribe from our newsletter. We respect your inbox.</div>
+                    <a href="unsubscribe.html" class="link-button">Unsubscribe</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>The Pottery Loop</strong></p>
+            <p>1770 W Berteau Ave Suite 303, Chicago, IL 60613</p>
+            <p>📧 <a href="mailto:PotteryChicago@gmail.com">PotteryChicago@gmail.com</a></p>
+            <p>🌐 <a href="https://www.thepotteryloop.com/">www.thepotteryloop.com</a></p>
+        </div>
+    </div>
+</body>
+</html>
