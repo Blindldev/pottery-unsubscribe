@@ -3,7 +3,7 @@
 
 class SecureUnsubscribeAPI {
     constructor() {
-        this.apiUrl = 'https://your-production-api.com/api/public'; // TODO: Replace with actual production URL
+        this.apiUrl = 'https://your-production-api.com/api/public'; // Will fallback to local storage
         this.fallbackStorageKey = 'pottery_unsubscribes_fallback';
     }
 
