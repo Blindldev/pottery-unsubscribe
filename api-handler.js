@@ -3,7 +3,7 @@
 
 class SecureUnsubscribeAPI {
     constructor() {
-        this.apiUrl = 'https://your-production-api.com/api/public'; // Will fallback to local storage
+        this.apiUrl = 'https://pottery-unsubscribe.mixedchicago.workers.dev'; // Cloudflare Worker URL
         this.fallbackStorageKey = 'pottery_unsubscribes_fallback';
     }
 
