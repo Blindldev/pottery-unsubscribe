@@ -10,7 +10,7 @@ class SecureUnsubscribeAPI {
     async addUnsubscribe(email, action, preferences = {}) {
         try {
             // Try secure API first
-            const response = await fetch(`${this.apiUrl}/unsubscribe`, {
+            const response = await fetch(`${this.apiUrl}/api/public/unsubscribe`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -104,7 +104,7 @@ class SecureUnsubscribeAPI {
     async isUnsubscribed(email) {
         try {
             // Try secure API first
-            const response = await fetch(`${this.apiUrl}/unsubscribe/check/${encodeURIComponent(email)}`);
+            const response = await fetch(`${this.apiUrl}/api/public/unsubscribe/check/${encodeURIComponent(email)}`);
             const data = await response.json();
             return data.isUnsubscribed || false;
         } catch (error) {
