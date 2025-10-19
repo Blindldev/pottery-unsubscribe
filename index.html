@@ -13,167 +13,291 @@
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            background: linear-gradient(135deg, #f4f1eb 0%, #e8ddd4 50%, #d4c4b0 100%);
             min-height: 100vh;
             padding: 20px;
         }
         
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             background: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 24px;
+            box-shadow: 0 25px 80px rgba(139, 69, 19, 0.15);
             overflow: hidden;
+            border: 2px solid #e8ddd4;
         }
         
         .header {
-            background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+            background: linear-gradient(135deg, #8B4513 0%, #A0522D 50%, #CD853F 100%);
             color: white;
-            padding: 60px 40px;
+            padding: 80px 50px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(180deg); }
         }
         
         .logo {
-            font-size: 48px;
+            font-size: 64px;
             font-weight: bold;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         
         .tagline {
-            font-size: 20px;
-            opacity: 0.9;
-            margin-bottom: 10px;
+            font-size: 28px;
+            opacity: 0.95;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+            font-weight: 300;
         }
         
         .subtitle {
-            font-size: 16px;
-            opacity: 0.8;
+            font-size: 18px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+            font-weight: 300;
         }
         
         .content {
-            padding: 50px 40px;
+            padding: 60px 50px;
         }
         
-        .welcome {
+        .welcome-text {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
         
-        .welcome h1 {
-            color: #8B4513;
+        .welcome-title {
             font-size: 32px;
-            margin-bottom: 15px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: 600;
         }
         
-        .welcome p {
-            color: #666;
+        .welcome-description {
             font-size: 18px;
+            color: #6c757d;
             line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
         }
         
         .links-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin: 40px 0;
+            margin: 50px 0;
         }
         
         .link-card {
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
             border: 2px solid #e9ecef;
-            border-radius: 12px;
-            padding: 30px;
+            border-radius: 20px;
+            padding: 40px 30px;
             text-align: center;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .link-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(139, 69, 19, 0.1), transparent);
+            transition: left 0.6s ease;
         }
         
         .link-card:hover {
+            transform: translateY(-8px);
             border-color: #8B4513;
-            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.15);
-            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(139, 69, 19, 0.2);
+        }
+        
+        .link-card:hover::before {
+            left: 100%;
         }
         
         .link-icon {
             font-size: 48px;
             margin-bottom: 20px;
+            display: block;
         }
         
         .link-title {
             font-size: 24px;
-            font-weight: 600;
-            color: #8B4513;
+            font-weight: bold;
+            color: #2c3e50;
             margin-bottom: 15px;
         }
         
         .link-description {
-            color: #666;
             font-size: 16px;
+            color: #6c757d;
             line-height: 1.5;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
         
         .link-button {
-            background: #8B4513;
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 6px;
-            font-size: 16px;
-            font-weight: 600;
-            text-decoration: none;
             display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 16px;
             transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
         }
         
         .link-button:hover {
-            background: #A0522D;
-            transform: translateY(-1px);
+            background: linear-gradient(135deg, #A0522D 0%, #CD853F 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(139, 69, 19, 0.3);
         }
         
         .footer {
-            background: #f8f9fa;
-            padding: 40px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 40px 50px;
             text-align: center;
-            border-top: 1px solid #e9ecef;
+            border-top: 2px solid #e9ecef;
         }
         
-        .footer p {
-            color: #666;
-            font-size: 14px;
-            margin: 5px 0;
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
         }
         
-        .footer a {
+        .footer-title {
+            font-size: 24px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .footer-description {
+            font-size: 16px;
+            color: #6c757d;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #8B4513;
+            font-weight: 500;
+        }
+        
+        .contact-item a {
             color: #8B4513;
             text-decoration: none;
         }
         
-        .footer a:hover {
+        .contact-item a:hover {
             text-decoration: underline;
         }
         
-        @media (max-width: 600px) {
+        .pottery-decoration {
+            position: absolute;
+            font-size: 24px;
+            opacity: 0.1;
+            animation: rotate 20s linear infinite;
+        }
+        
+        .pottery-decoration:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .pottery-decoration:nth-child(2) {
+            top: 60%;
+            right: 15%;
+            animation-delay: -7s;
+        }
+        
+        .pottery-decoration:nth-child(3) {
+            bottom: 20%;
+            left: 20%;
+            animation-delay: -14s;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @media (max-width: 768px) {
             .container {
                 margin: 10px;
-                border-radius: 0;
+                border-radius: 20px;
             }
             
-            .header, .content, .footer {
-                padding: 30px 20px;
+            .header {
+                padding: 60px 30px;
             }
             
             .logo {
-                font-size: 36px;
+                font-size: 48px;
             }
             
             .tagline {
-                font-size: 18px;
+                font-size: 24px;
             }
             
-            .welcome h1 {
-                font-size: 28px;
+            .content {
+                padding: 40px 30px;
+            }
+            
+            .links-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .link-card {
+                padding: 30px 20px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
             }
         }
     </style>
@@ -181,53 +305,76 @@
 <body>
     <div class="container">
         <div class="header">
+            <div class="pottery-decoration">🏺</div>
+            <div class="pottery-decoration">⚱️</div>
+            <div class="pottery-decoration">🏺</div>
             <div class="logo">🏺 The Pottery Loop</div>
-            <p class="tagline">Chicago's Premier Pottery Studio</p>
-            <p class="subtitle">Create • Learn • Connect</p>
+            <div class="tagline">Chicago's Premier Pottery Studio</div>
+            <div class="subtitle">Where Creativity Meets Clay</div>
         </div>
         
         <div class="content">
-            <div class="welcome">
-                <h1>Welcome to The Pottery Loop</h1>
-                <p>Discover the joy of pottery in our welcoming Chicago studio. Whether you're a beginner or experienced artist, we have something for everyone.</p>
+            <div class="welcome-text">
+                <h1 class="welcome-title">Welcome to Our Studio</h1>
+                <p class="welcome-description">
+                    Discover the art of pottery in the heart of Chicago. From beginner classes to advanced workshops, 
+                    private events to community gatherings, we're here to help you create something beautiful with your own hands.
+                </p>
             </div>
             
             <div class="links-grid">
                 <div class="link-card" onclick="window.open('https://www.thepotteryloop.com/', '_blank')">
-                    <div class="link-icon">🎨</div>
+                    <div class="link-icon">🏺</div>
                     <div class="link-title">Main Studio</div>
-                    <div class="link-description">Explore our pottery classes, workshops, and studio space. Book your next creative session.</div>
+                    <div class="link-description">Explore our pottery classes, workshops, and studio space. Book your next creative session and discover the joy of working with clay.</div>
                     <a href="https://www.thepotteryloop.com/" class="link-button" target="_blank">Visit Studio</a>
                 </div>
                 
                 <div class="link-card" onclick="window.open('https://forms.fillout.com/t/tGziJM6Krzus', '_blank')">
                     <div class="link-icon">🎉</div>
                     <div class="link-title">Private Events</div>
-                    <div class="link-description">Host your special occasion with us. Birthday parties, team building, and private pottery sessions.</div>
+                    <div class="link-description">Host your special occasion with us. Birthday parties, team building, corporate events, and private pottery sessions for any celebration.</div>
                     <a href="https://forms.fillout.com/t/tGziJM6Krzus" class="link-button" target="_blank">Book Event</a>
                 </div>
                 
                 <div class="link-card" onclick="window.location.href='subscribe.html'">
                     <div class="link-icon">📧</div>
                     <div class="link-title">Email Subscribe</div>
-                    <div class="link-description">Stay updated with our latest classes, events, and pottery tips. Join our community newsletter.</div>
+                    <div class="link-description">Stay updated with our latest classes, workshops, special events, and pottery tips. Join our community of clay enthusiasts.</div>
                     <a href="subscribe.html" class="link-button">Subscribe</a>
                 </div>
                 
                 <div class="link-card" onclick="window.location.href='unsubscribe.html'">
-                    <div class="link-icon">🚫</div>
+                    <div class="link-icon">⚙️</div>
                     <div class="link-title">Email Unsubscribe</div>
-                    <div class="link-description">Manage your email preferences or unsubscribe from our newsletter. We respect your inbox.</div>
-                    <a href="unsubscribe.html" class="link-button">Unsubscribe</a>
+                    <div class="link-description">Manage your email preferences or unsubscribe from our newsletters. We respect your inbox and make it easy to stay in control.</div>
+                    <a href="unsubscribe.html" class="link-button">Manage</a>
                 </div>
             </div>
         </div>
         
         <div class="footer">
-            <p><strong>The Pottery Loop</strong></p>
-            <p>1770 W Berteau Ave Suite 303, Chicago, IL 60613</p>
-            <p>📧 <a href="mailto:PotteryChicago@gmail.com">PotteryChicago@gmail.com</a></p>
-            <p>🌐 <a href="https://www.thepotteryloop.com/">www.thepotteryloop.com</a></p>
+            <div class="footer-content">
+                <h2 class="footer-title">Ready to Get Your Hands Dirty?</h2>
+                <p class="footer-description">
+                    Whether you're a complete beginner or an experienced potter, The Pottery Loop offers something for everyone. 
+                    Join us for a class, book a private event, or simply stop by to see what we're creating.
+                </p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <a href="mailto:info@mixedchicago.com">info@mixedchicago.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span>🌐</span>
+                        <a href="https://www.thepotteryloop.com" target="_blank">thepotteryloop.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <span>Chicago, IL</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>

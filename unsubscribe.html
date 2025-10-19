@@ -13,189 +13,318 @@
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            background: linear-gradient(135deg, #f4f1eb 0%, #e8ddd4 50%, #d4c4b0 100%);
             min-height: 100vh;
             padding: 20px;
         }
         
         .container {
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
             background: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(139, 69, 19, 0.15);
             overflow: hidden;
+            border: 1px solid #e8ddd4;
         }
         
         .header {
-            background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+            background: linear-gradient(135deg, #8B4513 0%, #A0522D 50%, #CD853F 100%);
             color: white;
-            padding: 40px 30px;
+            padding: 50px 40px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
         }
         
         .logo {
-            font-size: 32px;
+            font-size: 42px;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
         }
         
         .tagline {
-            font-size: 16px;
-            opacity: 0.9;
+            font-size: 18px;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
         }
         
         .content {
-            padding: 40px 30px;
+            padding: 50px 40px;
         }
         
         .status-message {
-            padding: 20px;
-            border-radius: 8px;
+            padding: 25px;
+            border-radius: 12px;
             margin-bottom: 30px;
             text-align: center;
+            font-weight: 500;
         }
         
         .success {
-            background: #d4edda;
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
             color: #155724;
-            border: 1px solid #c3e6cb;
+            border: 2px solid #c3e6cb;
         }
         
         .error {
-            background: #f8d7da;
+            background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
             color: #721c24;
-            border: 1px solid #f5c6cb;
+            border: 2px solid #f5c6cb;
         }
         
         .info {
-            background: #d1ecf1;
+            background: linear-gradient(135deg, #d1ecf1 0%, #bee5eb 100%);
             color: #0c5460;
-            border: 1px solid #bee5eb;
+            border: 2px solid #bee5eb;
         }
         
         .email-display {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 6px;
-            margin: 20px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 25px 0;
             text-align: center;
-            font-family: monospace;
-            font-size: 16px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 18px;
             color: #495057;
+            border: 2px solid #e9ecef;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .email-missing {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border: 2px solid #ffc107;
+            color: #856404;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        
+        .email-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 16px;
+            margin: 10px 0;
+            transition: border-color 0.3s ease;
+        }
+        
+        .email-input:focus {
+            outline: none;
+            border-color: #8B4513;
+            box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.1);
         }
         
         .options {
-            margin: 30px 0;
+            margin: 40px 0;
         }
         
         .option-card {
             border: 2px solid #e9ecef;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 15px 0;
+            border-radius: 16px;
+            padding: 25px;
+            margin: 20px 0;
             transition: all 0.3s ease;
             cursor: pointer;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .option-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(139, 69, 19, 0.1), transparent);
+            transition: left 0.5s ease;
         }
         
         .option-card:hover {
             border-color: #8B4513;
-            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(139, 69, 19, 0.15);
+        }
+        
+        .option-card:hover::before {
+            left: 100%;
         }
         
         .option-card.selected {
             border-color: #8B4513;
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #f8f4f0 0%, #e8ddd4 100%);
+            box-shadow: 0 8px 20px rgba(139, 69, 19, 0.2);
         }
         
         .option-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: #8B4513;
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c3e50;
             margin-bottom: 8px;
         }
         
         .option-description {
-            color: #666;
-            font-size: 14px;
+            color: #6c757d;
+            font-size: 16px;
             line-height: 1.5;
         }
         
-        .button {
-            background: #8B4513;
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 6px;
+        .preferences-section {
+            display: none;
+            margin-top: 30px;
+            padding: 30px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 16px;
+            border: 2px solid #e9ecef;
+        }
+        
+        .preference-item {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .preference-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 15px;
+            accent-color: #8B4513;
+        }
+        
+        .preference-label {
             font-size: 16px;
-            font-weight: 600;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
-            width: 100%;
-            margin: 10px 0;
-        }
-        
-        .button:hover {
-            background: #A0522D;
-            transform: translateY(-1px);
-        }
-        
-        .button.secondary {
-            background: #6c757d;
-        }
-        
-        .button.secondary:hover {
-            background: #5a6268;
-        }
-        
-        .button.danger {
-            background: #dc3545;
-        }
-        
-        .button.danger:hover {
-            background: #c82333;
-        }
-        
-        .footer {
-            background: #f8f9fa;
-            padding: 30px;
-            text-align: center;
-            border-top: 1px solid #e9ecef;
-        }
-        
-        .footer p {
-            color: #666;
-            font-size: 14px;
-            margin: 5px 0;
-        }
-        
-        .footer a {
-            color: #8B4513;
             text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            min-width: 140px;
         }
         
-        .footer a:hover {
-            text-decoration: underline;
+        .btn-primary {
+            background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #A0522D 0%, #CD853F 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(139, 69, 19, 0.3);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #6c757d 0%, #868e96 100%);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, #868e96 0%, #adb5bd 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(108, 117, 125, 0.3);
+        }
+        
+        .btn-danger {
+            background: linear-gradient(135deg, #dc3545 0%, #e74c3c 100%);
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background: linear-gradient(135deg, #e74c3c 0%, #ff6b6b 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(220, 53, 69, 0.3);
         }
         
         .hidden {
             display: none;
         }
         
-        .loading {
+        .footer {
             text-align: center;
-            padding: 20px;
-            color: #666;
+            padding: 30px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: #6c757d;
+            border-top: 1px solid #e9ecef;
         }
         
-        @media (max-width: 600px) {
+        .footer a {
+            color: #8B4513;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .pottery-icon {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+        
+        @media (max-width: 768px) {
             .container {
                 margin: 10px;
-                border-radius: 0;
+                border-radius: 16px;
             }
             
-            .header, .content, .footer {
-                padding: 20px;
+            .header {
+                padding: 40px 20px;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
             }
         }
     </style>
@@ -204,244 +333,235 @@
     <div class="container">
         <div class="header">
             <div class="logo">🏺 The Pottery Loop</div>
-            <p class="tagline">Manage Your Subscription</p>
+            <div class="tagline">Manage Your Email Preferences</div>
         </div>
         
         <div class="content">
-            <div id="loading" class="loading">
-                <p>Loading your subscription preferences...</p>
+            <div id="status-message" class="status-message hidden"></div>
+            
+            <div id="email-display" class="email-display hidden">
+                <strong>Managing preferences for:</strong><br>
+                <span id="current-email"></span>
             </div>
             
-            <div id="main-content" class="hidden">
-                <div id="status-message" class="status-message hidden"></div>
-                
-                <div class="email-display" id="email-display">
-                    <!-- Email will be populated here -->
+            <div id="email-missing" class="email-missing">
+                <strong>📧 Email not detected?</strong><br>
+                If your email should have been automatically filled from the link, please enter it below:
+                <input type="email" id="email-input" class="email-input" placeholder="your.email@example.com">
+                <button class="btn btn-primary" onclick="setEmail()">Set Email</button>
+            </div>
+            
+            <div class="options">
+                <div class="option-card" onclick="selectOption('unsubscribe')">
+                    <div class="option-title">
+                        <span class="pottery-icon">🚫</span>
+                        Unsubscribe Completely
+                    </div>
+                    <div class="option-description">Stop receiving all emails from The Pottery Loop. You can resubscribe anytime.</div>
                 </div>
                 
-                <div class="options">
-                    <h3 style="margin-bottom: 20px; color: #333;">What would you like to do?</h3>
-                    
-                    <div class="option-card" onclick="selectOption('unsubscribe')">
-                        <div class="option-title">Unsubscribe from all emails</div>
-                        <div class="option-description">Stop receiving all newsletters and updates from The Pottery Loop</div>
+                <div class="option-card" onclick="selectOption('preferences')">
+                    <div class="option-title">
+                        <span class="pottery-icon">⚙️</span>
+                        Update My Preferences
                     </div>
-                    
-                    <div class="option-card" onclick="selectOption('preferences')">
-                        <div class="option-title">Update my preferences</div>
-                        <div class="option-description">Choose which types of emails you'd like to receive</div>
-                    </div>
-                    
-                    <div class="option-card" onclick="selectOption('pause')">
-                        <div class="option-title">Pause emails temporarily</div>
-                        <div class="option-description">Stop emails for 30 days, then resume automatically</div>
-                    </div>
+                    <div class="option-description">Choose which types of emails you'd like to receive from us.</div>
                 </div>
-                
-                <div id="preferences-section" class="hidden">
-                    <h4 style="margin: 20px 0 15px 0; color: #333;">Email Preferences</h4>
-                    <label style="display: block; margin: 10px 0;">
-                        <input type="checkbox" id="newsletter" checked> Weekly class updates and news
-                    </label>
-                    <label style="display: block; margin: 10px 0;">
-                        <input type="checkbox" id="promotions" checked> Special offers and promotions
-                    </label>
-                    <label style="display: block; margin: 10px 0;">
-                        <input type="checkbox" id="events"> Event invitations and workshops
-                    </label>
+            </div>
+            
+            <div id="preferences-section" class="preferences-section">
+                <h3 style="margin-bottom: 20px; color: #2c3e50;">Choose Your Email Preferences</h3>
+                <div class="preference-item">
+                    <input type="checkbox" id="newsletter" checked>
+                    <label for="newsletter" class="preference-label">Weekly Newsletter (Class updates, studio news)</label>
                 </div>
-                
-                <button class="button" id="confirm-button" onclick="confirmAction()">Confirm</button>
-                <button class="button secondary" onclick="goBack()">Cancel</button>
+                <div class="preference-item">
+                    <input type="checkbox" id="promotions">
+                    <label for="promotions" class="preference-label">Special Promotions & Offers</label>
+                </div>
+                <div class="preference-item">
+                    <input type="checkbox" id="events" checked>
+                    <label for="events" class="preference-label">Upcoming Events & Workshops</label>
+                </div>
+            </div>
+            
+            <div class="action-buttons">
+                <button id="confirm-btn" class="btn btn-primary hidden" onclick="confirmAction()">Confirm</button>
+                <button id="cancel-btn" class="btn btn-secondary hidden" onclick="cancelAction()">Cancel</button>
             </div>
         </div>
         
         <div class="footer">
-            <p><strong>The Pottery Loop</strong></p>
-            <p>1770 W Berteau Ave Suite 303, Chicago, IL 60613</p>
-            <p>📧 <a href="mailto:PotteryChicago@gmail.com">PotteryChicago@gmail.com</a></p>
-            <p>🌐 <a href="https://www.thepotteryloop.com/">www.thepotteryloop.com</a></p>
+            <p>Questions? <a href="mailto:info@mixedchicago.com">Contact us</a> | <a href="subscribe.html">Resubscribe</a></p>
+            <p style="margin-top: 10px; font-size: 14px;">The Pottery Loop - Chicago's Premier Pottery Studio</p>
         </div>
     </div>
 
     <script>
-        let selectedOption = null;
-        let email = '';
-        
-        // Configuration - Update this with your localhost server URL
-        const API_BASE_URL = 'http://localhost:3001';
-        
+        let selectedAction = null;
+        let currentEmail = '';
+
         // Get email from URL parameters
-        function getUrlParams() {
+        function getEmailFromURL() {
             const urlParams = new URLSearchParams(window.location.search);
-            email = urlParams.get('email') || 'Unknown';
-            document.getElementById('email-display').textContent = email;
+            const email = urlParams.get('email');
+            if (email) {
+                currentEmail = email;
+                document.getElementById('current-email').textContent = email;
+                document.getElementById('email-display').classList.remove('hidden');
+                document.getElementById('email-missing').classList.add('hidden');
+            } else {
+                document.getElementById('email-missing').classList.remove('hidden');
+            }
         }
-        
-        function selectOption(option) {
-            selectedOption = option;
+
+        // Set email manually
+        function setEmail() {
+            const emailInput = document.getElementById('email-input');
+            const email = emailInput.value.trim();
             
-            // Remove selected class from all cards
+            if (email && isValidEmail(email)) {
+                currentEmail = email;
+                document.getElementById('current-email').textContent = email;
+                document.getElementById('email-display').classList.remove('hidden');
+                document.getElementById('email-missing').classList.add('hidden');
+                showMessage('Email set successfully!', 'success');
+            } else {
+                showMessage('Please enter a valid email address.', 'error');
+            }
+        }
+
+        // Validate email
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Select an option
+        function selectOption(action) {
+            // Remove previous selection
             document.querySelectorAll('.option-card').forEach(card => {
                 card.classList.remove('selected');
             });
             
-            // Add selected class to clicked card
+            // Add selection to clicked card
             event.currentTarget.classList.add('selected');
             
+            selectedAction = action;
+            
             // Show/hide preferences section
-            const preferencesSection = document.getElementById('preferences-section');
-            if (option === 'preferences') {
-                preferencesSection.classList.remove('hidden');
+            if (action === 'preferences') {
+                document.getElementById('preferences-section').classList.remove('hidden');
             } else {
-                preferencesSection.classList.add('hidden');
+                document.getElementById('preferences-section').classList.add('hidden');
             }
             
-            // Update button text
-            const button = document.getElementById('confirm-button');
-            switch(option) {
-                case 'unsubscribe':
-                    button.textContent = 'Unsubscribe';
-                    button.className = 'button danger';
-                    break;
-                case 'preferences':
-                    button.textContent = 'Update Preferences';
-                    button.className = 'button';
-                    break;
-                case 'pause':
-                    button.textContent = 'Pause Emails';
-                    button.className = 'button secondary';
-                    break;
-            }
+            // Show action buttons
+            document.getElementById('confirm-btn').classList.remove('hidden');
+            document.getElementById('cancel-btn').classList.remove('hidden');
         }
-        
+
+        // Confirm action
         function confirmAction() {
-            if (!selectedOption) {
-                showMessage('Please select an option first.', 'error');
+            if (!currentEmail) {
+                showMessage('Please enter your email address first.', 'error');
                 return;
             }
-            
-            const button = document.getElementById('confirm-button');
-            button.textContent = 'Processing...';
-            button.disabled = true;
-            
-            // Call your localhost API
-            fetch(`${API_BASE_URL}/api/unsubscribe`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    email: email,
-                    action: selectedOption
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    switch(selectedOption) {
-                        case 'unsubscribe':
-                            processUnsubscribe();
-                            break;
-                        case 'preferences':
-                            processPreferences();
-                            break;
-                        case 'pause':
-                            processPause();
-                            break;
-                    }
-                } else {
-                    showMessage('Error processing request: ' + data.error, 'error');
-                    button.textContent = 'Confirm';
-                    button.disabled = false;
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                showMessage('Error processing request. Please try again or contact us directly.', 'error');
-                button.textContent = 'Confirm';
-                button.disabled = false;
-            });
+
+            if (selectedAction === 'unsubscribe') {
+                processUnsubscribe();
+            } else if (selectedAction === 'preferences') {
+                processPreferences();
+            }
         }
-        
-        function processUnsubscribe() {
-            showMessage('You have been successfully unsubscribed from all emails. We\'re sorry to see you go!', 'success');
-            document.getElementById('main-content').innerHTML = `
-                <div class="status-message success">
-                    <h3>Successfully Unsubscribed</h3>
-                    <p>You will no longer receive emails from The Pottery Loop.</p>
-                    <p>If you change your mind, you can always resubscribe by visiting our website or contacting us directly.</p>
-                </div>
-                <div style="text-align: center; margin-top: 30px;">
-                    <a href="https://www.thepotteryloop.com/" class="button">Visit Our Website</a>
-                    <a href="subscribe.html" class="button secondary">Resubscribe</a>
-                </div>
-            `;
-        }
-        
-        function processPreferences() {
-            const newsletter = document.getElementById('newsletter').checked;
-            const promotions = document.getElementById('promotions').checked;
-            const events = document.getElementById('events').checked;
-            
-            showMessage('Your email preferences have been updated successfully!', 'success');
-            document.getElementById('main-content').innerHTML = `
-                <div class="status-message success">
-                    <h3>Preferences Updated</h3>
-                    <p>Your email preferences have been saved:</p>
-                    <ul style="text-align: left; margin: 15px 0;">
-                        <li>Weekly updates: ${newsletter ? 'Enabled' : 'Disabled'}</li>
-                        <li>Promotions: ${promotions ? 'Enabled' : 'Disabled'}</li>
-                        <li>Events: ${events ? 'Enabled' : 'Disabled'}</li>
-                    </ul>
-                </div>
-                <div style="text-align: center; margin-top: 30px;">
-                    <a href="https://www.thepotteryloop.com/" class="button">Visit Our Website</a>
-                </div>
-            `;
-        }
-        
-        function processPause() {
-            showMessage('Your emails have been paused for 30 days. They will resume automatically.', 'info');
-            document.getElementById('main-content').innerHTML = `
-                <div class="status-message info">
-                    <h3>Emails Paused</h3>
-                    <p>You won't receive emails for the next 30 days. After that, we'll resume sending you updates.</p>
-                    <p>You can always come back here to change your preferences or unsubscribe completely.</p>
-                </div>
-                <div style="text-align: center; margin-top: 30px;">
-                    <a href="https://www.thepotteryloop.com/" class="button">Visit Our Website</a>
-                </div>
-            `;
-        }
-        
-        function showMessage(message, type) {
-            const statusDiv = document.getElementById('status-message');
-            statusDiv.textContent = message;
-            statusDiv.className = `status-message ${type}`;
-            statusDiv.classList.remove('hidden');
-        }
-        
-        function goBack() {
-            selectedOption = null;
+
+        // Cancel action
+        function cancelAction() {
+            selectedAction = null;
             document.querySelectorAll('.option-card').forEach(card => {
                 card.classList.remove('selected');
             });
             document.getElementById('preferences-section').classList.add('hidden');
-            document.getElementById('confirm-button').textContent = 'Confirm';
-            document.getElementById('confirm-button').className = 'button';
-            document.getElementById('confirm-button').disabled = false;
+            document.getElementById('confirm-btn').classList.add('hidden');
+            document.getElementById('cancel-btn').classList.add('hidden');
         }
-        
+
+        // Process unsubscribe
+        async function processUnsubscribe() {
+            try {
+                const response = await fetch('http://localhost:3001/api/unsubscribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: currentEmail,
+                        action: 'unsubscribe'
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    showMessage('You have been successfully unsubscribed from all emails.', 'success');
+                    document.querySelector('.options').style.display = 'none';
+                    document.querySelector('.action-buttons').style.display = 'none';
+                } else {
+                    showMessage('Error: ' + (data.error || 'Failed to unsubscribe'), 'error');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showMessage('Failed to connect to the server. Please try again later.', 'error');
+            }
+        }
+
+        // Process preferences
+        async function processPreferences() {
+            const preferences = {
+                newsletter: document.getElementById('newsletter').checked,
+                promotions: document.getElementById('promotions').checked,
+                events: document.getElementById('events').checked
+            };
+
+            try {
+                const response = await fetch('http://localhost:3001/api/unsubscribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: currentEmail,
+                        action: 'preferences',
+                        preferences: preferences
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    showMessage('Your email preferences have been updated successfully!', 'success');
+                    document.querySelector('.options').style.display = 'none';
+                    document.querySelector('.action-buttons').style.display = 'none';
+                } else {
+                    showMessage('Error: ' + (data.error || 'Failed to update preferences'), 'error');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showMessage('Failed to connect to the server. Please try again later.', 'error');
+            }
+        }
+
+        // Show message
+        function showMessage(message, type) {
+            const messageDiv = document.getElementById('status-message');
+            messageDiv.textContent = message;
+            messageDiv.className = `status-message ${type}`;
+            messageDiv.classList.remove('hidden');
+        }
+
         // Initialize page
         document.addEventListener('DOMContentLoaded', function() {
-            getUrlParams();
-            
-            // Hide loading and show main content
-            setTimeout(() => {
-                document.getElementById('loading').classList.add('hidden');
-                document.getElementById('main-content').classList.remove('hidden');
-            }, 500);
+            getEmailFromURL();
         });
     </script>
 </body>
